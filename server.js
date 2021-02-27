@@ -33,6 +33,7 @@ app.set("view engine", "ejs") // Other options: html, pug
 // load assets
 app.use('/css', express.static(path.resolve(__dirname, "assets/css")))
 app.use('/img', express.static(path.resolve(__dirname, "assets/img")))
+app.use('/docs', express.static(path.resolve(__dirname, "assets/docs")))
 app.use(express.static(__dirname+'/public'));
 
 // Express session

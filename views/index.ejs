@@ -1,7 +1,8 @@
 <!--include header-->
 <%- include('include/_header') %>
     <!--/include header-->
-    <span style="color: white; font-size: xx-large;"> Employee Leave Management System</span>
+    <a href="/dashboard" style="color: white; font-size: x-large; text-align: left; text-decoration: none;"> Employee
+        Leave Management System </a>
 
     </div>
     </div>
@@ -9,114 +10,197 @@
     </header>
     <!--/Header-->
 
+    <% for(var i=0; i < employees.length; i++) { if(employees[i].id==id){ global.employee=employees[i]; } }%>
 
-    <!--Main Site-->
 
-    <main id="site-main">
+        <!--Main Site-->
 
-        <div class="row">
+        <main id="site-main">
 
-            <div class="col-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">My Profile</h3>
-                    </div>
-                    <div class="panel-body">
-                        <img src="/img/CyberVaThrA.jpg" height="100px" width="100px" style="float:left; padding: 2%;" />
-                        <h3>CyberVaThrA</h3>
-                        ColruytHack2020
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Team View</h3>
-                    </div>
-                    <div class="panel-body">
+            <div class="row">
 
-                        <table>
-                            <% for(var i=0; i < employees.length; i++) { %>
-
-                                <tr>
-                                    <td><img src="/img/<%= employees[i].id %>.jpg" height="40px" width="40px" /></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                    <td>
-                                        <%= employees[i].name %><br />
-                                            <p style="font-size: smaller;">
-                                                <%= employees[i].designation %>
-                                            </p>
-                                    </td>
-                                </tr>
-                                <% } %>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Team Leaves</h3>
-                    </div>
-                    <div class="panel-body">
-                        <span style="float: left; padding-right: 2%; text-align: center;">
-                            <h1 style="color: #127ba3;">2</h1>
-                            Leave Today
-                        </span>
-                        <span style="float: left; padding-right: 2%; text-align: center;">
-                            <h1 style="color: #127ba3;">1</h1>
-                            Sick Leave
-                        </span>
-                        <span style="float: left; padding-right: 2%; text-align: center;">
-                            <h1 style="color: #127ba3;">1</h1>
-                            Out of Office
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Leave Balances</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="progress" style="height: 30px" ; background: #009579;>
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="30" aria-valuemin="0"
-                                aria-valuemax="100">
-                
-                                30 Earned Leaves Left
-                            </div>
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">My Profile</h3>
                         </div>
-                
-                        <div class="progress" style="height: 30px" ; background: #009579;>
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0"
-                                aria-valuemax="100">
-                
-                                5 WFH Left
-                            </div>
-                        </div>
-                        <div class="progress" style="height: 30px" ; background: #009579;>
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="30" aria-valuemin="0"
-                                aria-valuemax="100">
-                
-                                1 Optional Holidays Left
-                            </div>
+                        <div class="panel-body">
+                            <img src="/img/<%= id %>.jpg" height="100px" width="100px"
+                                style="float:left; padding: 2%;" />
+                            <h3>
+                                <%= employee.name %>
+                            </h3>
+                            <%= employee.designation %>
                         </div>
                     </div>
                 </div>
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Team View</h3>
+                        </div>
+                        <div class="panel-body">
 
+                            <table>
+                                <% for(var i=0; i < employees.length; i++) { %>
 
+                                    <tr>
+                                        <td><img src="/img/<%= employees[i].id %>.jpg" height="40px" width="40px" />
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <%= employees[i].name %><br />
+                                                <p style="font-size: smaller;">
+                                                    <%= employees[i].designation %>
+                                                </p>
+                                        </td>
+                                    </tr>
+                                    <% } %>
 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Team Leaves</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">2</h1>
+                                Leave Today
+                            </span>
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">1</h1>
+                                Sick Leave
+                            </span>
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">1</h1>
+                                Out of Office
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Attendance Calendar</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="month">
+                                <ul>
+                                    <li class="prev">&#10094;</li>
+                                    <li class="next">&#10095;</li>
+                                    <li>
+                                        February<br>
+                                        <span style="font-size:18px; color:white;">2021</span>
+                                    </li>
+                                </ul>
+                            </div>
 
-    </main>
-    <!--/Main Site-->
+                            <ul class="weekdays">
+                                <li>Mo</li>
+                                <li>Tu</li>
+                                <li>We</li>
+                                <li>Th</li>
+                                <li>Fr</li>
+                                <li>Sa</li>
+                                <li>Su</li>
+                            </ul>
+
+                            <ul class="days">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li><span class="leave">9</span></li>
+                                <li>10</li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li>14</li>
+                                <li>15</li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li><span class="oh">18</span></li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li><span class="active">28</span></li>
+                            </ul>
+                            <ul class="days">
+                                <li style="width: 20%;"><span class="active"> &nbsp;&nbsp;&nbsp;&nbsp;</span> Today</li>
+                                <li style="width: 20%;"><span class="leave"> &nbsp;&nbsp;&nbsp;&nbsp;</span> Leave</li>
+                                <li style="width: 20%;"><span class="oh"> &nbsp;&nbsp;&nbsp;&nbsp;</span> Optional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Leave Balances</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="progress" style="height: 30px" ; background: #009579;>
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="30"
+                                    aria-valuemin="0" aria-valuemax="100">
+
+                                    <%= employee.earned_leaves %> Earned Leaves Left
+                                </div>
+                            </div>
+
+                            <div class="progress" style="height: 30px" ; background: #009579;>
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="30"
+                                    aria-valuemin="0" aria-valuemax="100">
+
+                                    <%= employee.wfh %> WFH Left
+                                </div>
+                            </div>
+                            <div class="progress" style="height: 30px" ; background: #009579;>
+                                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="30"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <%= employee.optional_holidays %> Optional Holidays Left
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Documents</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p> <a href="docs/Leave_Policy.pdf">Leave policy</a></p>
+                            <p> <a href="docs/Holiday_Calendar_CI_2021.pdf">Holiday
+                                    Calendar CI 2021</a></p>
+                            <p> <a href="docs/Holiday_Calendar_BE_2021.pdf">Holiday
+                                    Calendar Belgium 2021 </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--/Main Site-->
 
 
 
 
-    <!--include footer-->
-    <%- include('include/_footer') %>
         <!--include footer-->
+        <%- include('include/_footer') %>
+            <!--include footer-->

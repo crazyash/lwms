@@ -14,32 +14,35 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
  */
 route.get('/', services.homeRoutes);
 route.get('/dashboard', ensureAuthenticated, services.dashboardRoutes);
-
+route.get('/inprogress', (req, res) => {
+res.render('inprogress');
+});
 //Login
 route.get('/employee/login', forwardAuthenticated, services.loginRoutes);
 
-// // Login
-// route.post('/login', (req, res, next) => {
-//     passport.authenticate('local', {
-//       successRedirect: '/dashboard',
-//       failureRedirect: '/employee/login',
-//       failureFlash: true
-//     })(req, res, next);
-//   });
-  
 // Login
 route.post('/login', (req, res, next) => {
-  passport.authenticate('local', function(req, res){
-    console.log(req.id);
-  })(req, res, next);
-});
-
+  global.id = req.body.id;
+    passport.authenticate('local', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/employee/login',
+      failureFlash: true
+    })(req, res, next);
+  });
+  
+// Login
+// route.post('/login', (req, res, next) => {
+//   var id = req.body.id;
+//   passport.authenticate('local', function(req, res){
+//     res.redirect('/dashboard',{id: id});
+//   })(req, res, next);
+// });
 
   // Logout
   route.get('/logout', (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/employee/login');
+    res.redirect('/');
   });
 
 
