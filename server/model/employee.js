@@ -12,13 +12,15 @@ var schema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        
     },
-    gender: String,
-    el: Number,
-    wfh: Number,
-    pl: Number,
-    ml: Number
+    Gender: String,
+    Address: String,
+    Earned_Leaves: Number,
+    WFH: Number,
+    Optional_Holidays:Number,
+    Paternity Leaves: Number,
+    Maternity Leaves: Number
 
 })
 
