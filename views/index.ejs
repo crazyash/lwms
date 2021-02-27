@@ -1,0 +1,44 @@
+<!--include header-->
+<%- include('include/_header') %>
+<!--include header-->
+
+
+<!--Main Site-->
+
+<main id="site-main">
+    <div class="container">
+        <!-- form handling -->
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>EL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < employees.length; i++) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= employees[i].id %></td>
+                            <td><%= employees[i].name %></td>
+                            <td><%= employees[i].gender %></td>
+                            <td><%= employees[i].el %></td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+<!--/Main Site-->
+
+
+
+
+<!--include footer-->
+<%- include('include/_footer') %>
+<!--include footer-->
