@@ -15,10 +15,15 @@ exports.create = (req,res)=>{
         name : req.body.name,
         password : req.body.password,
         gender: req.body.gender,
-        el: req.body.el,
+        designation: req.body.designation,
+        address: req.body.address,
+        earned_leaves: req.body.earned_leaves,
         wfh: req.body.wfh,
-        pl: req.body.pl,
-        ml: req.body.ml
+        paternity_leaves: req.body.paternity_leaves,
+        maternity_leaves: req.body.maternity_leaves,
+        image_source: req.body.image_source,
+        optional_holidays: req.body.optional_holidays
+
     })
 
     // save employee in the database

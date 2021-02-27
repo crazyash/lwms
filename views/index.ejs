@@ -41,11 +41,11 @@
                         <% for(var i = 0; i < employees.length; i++) { %>
                         
                         <tr >
-                            <td><img src="/img/CyberVaThrA.jpg" height="40px" width="40px" /></td>
+                            <td><img src="/img/<%= employees[i].id %>.jpg" height="40px" width="40px" /></td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td>
                                 <%= employees[i].name %><br/>
-                                <p style="font-size: smaller;"><%= employees[i].name %></p>
+                                <p style="font-size: smaller;"><%= employees[i].designation %></p>
                             </td>
                         </tr>
                         <% } %>
