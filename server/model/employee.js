@@ -11,17 +11,24 @@ var schema = new mongoose.Schema({
     },
     name: {
         type: String,
+<<<<<<< HEAD
         required: true
     },
     password:{
         type: String,
         required: true
+=======
+        required: true,
+        
+>>>>>>> bee213ccbdfad2c66dd2092858dce57ca1391f04
     },
-    gender: String,
-    el: Number,
-    wfh: Number,
-    pl: Number,
-    ml: Number
+    Gender: String,
+    Address: String,
+    Earned_Leaves: Number,
+    WFH: Number,
+    Optional_Holidays:Number,
+    Paternity Leaves: Number,
+    Maternity Leaves: Number
 
 })
 
