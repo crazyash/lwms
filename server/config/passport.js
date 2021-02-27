@@ -19,7 +19,7 @@ module.exports = function(passport) {
           if (err) throw err;
           if (isMatch) {
             return done(null, employee);
-            console.log(`Matched password`);
+            console.log(`Password matched`);
           } else {
             return done(null, false, { message: 'Password incorrect' });
           }

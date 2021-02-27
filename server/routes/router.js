@@ -18,15 +18,23 @@ route.get('/dashboard', ensureAuthenticated, services.dashboardRoutes);
 //Login
 route.get('/employee/login', forwardAuthenticated, services.loginRoutes);
 
+// // Login
+// route.post('/login', (req, res, next) => {
+//     passport.authenticate('local', {
+//       successRedirect: '/dashboard',
+//       failureRedirect: '/employee/login',
+//       failureFlash: true
+//     })(req, res, next);
+//   });
+  
 // Login
 route.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-      successRedirect: '/dashboard',
-      failureRedirect: '/employee/login',
-      failureFlash: true
-    })(req, res, next);
-  });
-  
+  passport.authenticate('local', function(req, res){
+    console.log(req.id);
+  })(req, res, next);
+});
+
+
   // Logout
   route.get('/logout', (req, res) => {
     req.logout();
