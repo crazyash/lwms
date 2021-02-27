@@ -1,5 +1,5 @@
 var Employeedb = require('../model/employee');
-
+const bcrypt = require('bcryptjs');
 
 //create and save new employee
 exports.create = (req,res)=>{
@@ -13,6 +13,7 @@ exports.create = (req,res)=>{
     const employee = new Employeedb({
         id : req.body.id,
         name : req.body.name,
+        password : req.body.password,
         gender: req.body.gender,
         el: req.body.el,
         wfh: req.body.wfh,
@@ -24,8 +25,20 @@ exports.create = (req,res)=>{
     employee
         .save(employee)
         .then(data => {
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(employee.password, salt, (err, hash) => {
+                  if (err) throw err;
+                  employee.password = hash;
+                  employee
+                    .save()
+                    .then(
+                        console.log('Password saved')
+                    )
+                    .catch(err => console.log(err));
+                });
+              });
             res.send(data)
-            //res.redirect('/add-employee');
+
         })
         .catch(err =>{
             res.status(500).send({
@@ -41,7 +54,7 @@ exports.find = (req, res)=>{
     if(req.query.id){
         const id = req.query.id;
 
-        Employeedb.findById(id)
+        Employeedb.findOne({id: id})
             .then(data =>{
                 if(!data){
                     res.status(404).send({ message : "Not found employee with id "+ id})
