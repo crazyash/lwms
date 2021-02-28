@@ -26,17 +26,36 @@
                         <div class="panel-body">
                             <img src="/img/<%= id %>.jpg" height="100px" width="100px"
                                 style="float:left; padding: 2%;" />
-                            <h3>
+                            <h3 style="color: #127ba3; font-weight: 600;">
                                 <%= employee.name %>
                             </h3>
                             <%= employee.designation %>
+                            <br />
+                            <span style="float: right;">
+                            <a href="#" class="btn btn-primary btn-xs">View Full Profile</a>
+                        </span>
                         </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Request Absence</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <input type="date" id="date" name="date" value="28-02-2021">
+                            <input type="date" id="date" name="date" placeholder="28-02-2021">
+                        <br/> <br/><a href="#" class="btn btn-primary btn-xs">Apply Leave</a>
+                        <a href="#" class="btn btn-primary btn-xs">Apply WFH</a>
+                        <a href="#" class="btn btn-primary btn-xs">Cancel Leave</a>
+                    </div>
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Attendance Calendar</h3>
                         </div>
                         <div class="panel-body">
+
+                        <br/>
                             <div class="month">
                                 <ul>
                                     <li class="prev">&#10094;</li>
@@ -102,7 +121,10 @@
                             <h3 class="panel-title">Team View</h3>
                         </div>
                         <div class="panel-body">
-
+                            <!-- <input type="date" id="date" name="date" placeholder="28-02-2021"> -->
+                            <!-- <a href="#" class="btn btn-primary btn-xs">Apply Leave</a> -->
+                            <!-- <a href="#" class="btn btn-primary btn-xs">Cancel Leave</a> -->
+                            <!-- <a href="#" class="btn btn-primary btn-xs">Sick Leave</a><br/><br/> -->
                             <table>
                                 <% for(var i=0; i < employees.length; i++) { %>
 
