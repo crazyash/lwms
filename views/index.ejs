@@ -1,14 +1,13 @@
 <!--include header-->
 <%- include('include/_header') %>
     <!--/include header-->
-    <a href="/dashboard" style="color: white; font-size: x-large; text-align: left; text-decoration: none;"> Employee
-        Leave Management System </a>
 
-    </div>
-    </div>
-    </nav>
+    <li class="active"><a href="/dashboard">Employee
+            Leave Management System</a></li>
+    </ul>
     </header>
     <!--/Header-->
+
 
     <% for(var i=0; i < employees.length; i++) { if(employees[i].id==id){ global.employee=employees[i]; } }%>
 
@@ -33,59 +32,6 @@
                             <%= employee.designation %>
                         </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Team View</h3>
-                        </div>
-                        <div class="panel-body">
-
-                            <table>
-                                <% for(var i=0; i < employees.length; i++) { %>
-
-                                    <tr>
-                                        <td><img src="/img/<%= employees[i].id %>.jpg" height="40px" width="40px" />
-                                        </td>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                        <td>
-                                            <%= employees[i].name %><br />
-                                                <p style="font-size: smaller;">
-                                                    <%= employees[i].designation %>
-                                                </p>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Team Leaves</h3>
-                        </div>
-                        <div class="panel-body">
-                            <span style="float: left; padding-right: 2%; text-align: center;">
-                                <h1 style="color: #127ba3;">2</h1>
-                                Leave Today
-                            </span>
-                            <span style="float: left; padding-right: 2%; text-align: center;">
-                                <h1 style="color: #127ba3;">1</h1>
-                                Sick Leave
-                            </span>
-                            <span style="float: left; padding-right: 2%; text-align: center;">
-                                <h1 style="color: #127ba3;">1</h1>
-                                Out of Office
-                            </span>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Attendance Calendar</h3>
@@ -153,6 +99,31 @@
                 <div class="col-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <h3 class="panel-title">Team View</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <table>
+                                <% for(var i=0; i < employees.length; i++) { %>
+
+                                    <tr>
+                                        <td><img src="/img/<%= employees[i].id %>.jpg" height="40px" width="40px" />
+                                        </td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>
+                                            <%= employees[i].name %><br />
+                                                <p style="font-size: smaller;">
+                                                    <%= employees[i].designation %>
+                                                </p>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
                             <h3 class="panel-title">Leave Balances</h3>
                         </div>
                         <div class="panel-body">
@@ -181,6 +152,26 @@
                     </div>
                 </div>
                 <div class="col-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Team Leaves</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">2</h1>
+                                Leave Today
+                            </span>
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">1</h1>
+                                Sick Leave
+                            </span>
+                            <span style="float: left; padding-right: 2%; text-align: center;">
+                                <h1 style="color: #127ba3;">1</h1>
+                                Out of Office
+                            </span>
+
+                        </div>
+                    </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Documents</h3>
